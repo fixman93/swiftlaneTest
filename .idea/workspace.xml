@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="64bd1d05-a6fb-4fff-828a-8cd827576db2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/UserCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/actions/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/UserForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UserForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/UserList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UserList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +44,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1588620478494</updated>
-      <workItem from="1588620479730" duration="5334000" />
+      <workItem from="1588620479730" duration="5602000" />
     </task>
     <task id="LOCAL-00001" summary="setup form">
       <created>1588623504990</created>

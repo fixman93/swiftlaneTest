@@ -7,4 +7,4 @@ export const addUser = createAction<{
   email: string;
 }>("ADD_USER");
 export const editUser = createAction<User>("EDIT_USER");
-export const setUser = createAction<User>("SET_USER");
+export const setUser = createAction<User | null>("SET_USER");

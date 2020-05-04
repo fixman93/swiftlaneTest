@@ -1,8 +1,8 @@
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 import { Button, Form, Input } from "antd";
 import { State } from "../reducers";
 import { useDispatch, useSelector } from "react-redux";
-import { addUser, editUser } from "../actions";
+import { addUser, editUser, setUser } from "../actions";
 import history from "../history";
 
 interface UserForm {}
@@ -22,6 +22,12 @@ const UserForm: FC<UserForm> = () => {
     }
     history.push("/");
   };
+
+  useEffect(() => {
+    return () => {
+      dispatch(setUser(null));
+    };
+  }, []);
 
   return (
     <Form
