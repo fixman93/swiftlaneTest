@@ -1,18 +1,33 @@
 import React, { FC } from "react";
 import { Button, Form, Input } from "antd";
-import { User } from "../reducers";
+import { State } from "../reducers";
+import { useDispatch, useSelector } from "react-redux";
+import { addUser, editUser } from "../actions";
+import history from "../history";
 
-interface UserForm {
-  handleSubmit: (values: any) => void;
-  user?: User;
-}
-const UserForm: FC<UserForm> = ({ handleSubmit, user }) => {
+interface UserForm {}
+const UserForm: FC<UserForm> = () => {
+  const currentUser = useSelector((state: State) => state.currentUser);
+  const dispatch = useDispatch();
+
+  const handleSubmit = (values: {
+    name: string;
+    email: string;
+    phone: string;
+  }) => {
+    if (!currentUser) {
+      dispatch(addUser(values));
+    } else {
+      dispatch(editUser({ ...currentUser, ...values }));
+    }
+    history.push("/");
+  };
+
   return (
     <Form
       name="basic"
-      initialValues={user || {}}
-      onFinish={(values) => handleSubmit(values)}
-      onFinishFailed={() => console.log("finished")}
+      initialValues={currentUser || {}}
+      onFinish={(values) => handleSubmit(values as any)}
       layout={"vertical"}
     >
       <Form.Item

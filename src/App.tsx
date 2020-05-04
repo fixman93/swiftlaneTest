@@ -1,26 +1,19 @@
 import React from "react";
 import "./App.scss";
-import { Button, Modal } from "antd";
 import UserForm from "./components/UserForm";
-import { useDispatch } from "react-redux";
-import { addUser } from "./actions";
 import UserList from "./components/UserList";
+import { Route, Router, Switch } from "react-router-dom";
+import history from "./history";
 
 function App() {
-  const dispatch = useDispatch();
-
-  const handleSubmit = (values: {
-    name: string;
-    email: string;
-    phone: string;
-  }) => {
-    dispatch(addUser(values));
-  };
   return (
     <div className="App">
-      <Button type={"primary"}>Add User</Button>
-      <UserForm handleSubmit={handleSubmit} />
-      <UserList />
+      <Router history={history}>
+        <Switch>
+          <Route path={["/new", "/edit"]} component={UserForm} />
+          <Route component={UserList} />
+        </Switch>
+      </Router>
     </div>
   );
 }

@@ -1,25 +1,20 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { State, User } from "../reducers";
-import { Card } from "antd";
-import { EditOutlined } from "@ant-design/icons";
+import { Button } from "antd";
+import history from "../history";
+import UserCard from "./UserCard";
 
 const UserList = () => {
   const users: User[] = useSelector((state: State) => state.users);
 
-  console.log(users);
-
   return (
     <div className={"user__list"}>
+      <Button type={"primary"} onClick={() => history.push("/new")}>
+        Add User
+      </Button>
       {users.map((user) => {
-        return (
-          <Card
-            style={{ width: 300, marginTop: 16 }}
-            actions={[<EditOutlined key="edit" />]}
-          >
-            <Card.Meta title={user.name} description={user.email} />
-          </Card>
-        );
+        return <UserCard key={user.id} user={user} />;
       })}
     </div>
   );
