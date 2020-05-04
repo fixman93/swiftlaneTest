@@ -1,19 +1,38 @@
-import {createReducer} from "@reduxjs/toolkit";
-import * as Actions from '../actions'
+import { createReducer } from "@reduxjs/toolkit";
+import * as Actions from "../actions";
 
-interface User {
-    id: number;
-    name: string;
-    email: string;
-    phone: string;
+export interface User {
+  id: number;
+  name: string;
+  email: string;
+  phone: string;
 }
-const initialState: {users: User[]} = {
-    users: [],
+
+export interface State {
+  users: User[];
+  lastId: number;
 }
-export default createReducer<{users: User[]}>(initialState, {
-    [Actions.addUser.type]: (state, {payload})=>{
-        return {
-            users: [...state.users, payload]
-        }
-}
+const initialState: State = {
+  users: [],
+  lastId: 0,
+};
+export default createReducer<State>(initialState, {
+  [Actions.addUser.type]: (state, { payload }) => {
+    const user = { ...payload, id: state.lastId + 1 };
+    return {
+      lastId: user.id,
+      users: [...state.users, user],
+    };
+  },
+  [Actions.editUser.type]: (state, { payload }) => {
+    const users = [...state.users];
+    const userIds = users.map((user) => user.id);
+    const index = userIds.indexOf(payload.id);
+    users.splice(index, 1, payload);
+
+    return {
+      ...state,
+      users,
+    };
+  },
 });
